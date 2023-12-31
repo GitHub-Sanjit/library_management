@@ -20,6 +20,7 @@ env = environ.Env()
 environ.Env.read_env()
 
 print(os.environ.get('DB_PASSWORD'))
+print(os.environ.get('EMAIL_PASSWORD'))
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -166,4 +167,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = env("EMAIL")
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD'), 
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD'),
