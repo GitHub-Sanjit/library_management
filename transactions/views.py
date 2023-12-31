@@ -1,7 +1,7 @@
 from transactions.models import Transaction
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from .forms import DepositForm
 from django.core.mail import EmailMultiAlternatives

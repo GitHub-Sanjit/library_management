@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import UserLibraryAccount
+from .models import LibraryAccount
 
 # Register your models here.
 
-admin.site.register(UserLibraryAccount)
+admin.site.register(LibraryAccount)

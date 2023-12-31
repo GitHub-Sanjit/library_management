@@ -1,24 +1,28 @@
 from django.contrib.auth.models import User
 from django import forms
-from .models import UserLibraryAccount
+from .models import LibraryAccount
 from django.contrib.auth.forms import UserCreationForm
-from accounts.models import UserLibraryAccount
+from accounts.models import LibraryAccount
+
 
 class UserRegistrationForm(UserCreationForm):
-    birth_date = forms.DateField(widget=forms.DateInput(attrs={'type':'date'}))
+    birth_date = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date'}))
+
     class Meta:
         model = User
-        fields = [ 'username','password1', 'password2', 'first_name', 'last_name', 'birth_date','email']
+        fields = ['username', 'password1', 'password2',
+                  'first_name', 'last_name', 'birth_date', 'email']
 
     def save(self, commit=True):
         our_user = super().save(commit=False)
         if commit == True:
             our_user.save()
             birth_date = self.cleaned_data.get('birth_date')
-            UserLibraryAccount.objects.create(
-                user = our_user,
-                birth_date =birth_date,
-                account_no = 1000 + our_user.id
+            LibraryAccount.objects.create(
+                user=our_user,
+                birth_date=birth_date,
+                account_no=1000 + our_user.id
             )
         return our_user
 
@@ -28,7 +32,7 @@ class UserRegistrationForm(UserCreationForm):
         for field in self.fields:
             self.fields[field].widget.attrs.update({
 
-                'class' : (
+                'class': (
                     'appearance-none block w-full bg-gray-200 '
                     'text-gray-700 border border-gray-200 rounded '
                     'py-3 px-4 leading-tight focus:outline-none '
@@ -36,8 +40,11 @@ class UserRegistrationForm(UserCreationForm):
                 )
             })
 
+
 class UserUpdateForm(forms.ModelForm):
-    birth_date = forms.DateField(widget=forms.DateInput(attrs={'type':'date'}))
+    birth_date = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date'}))
+
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email']
@@ -56,7 +63,7 @@ class UserUpdateForm(forms.ModelForm):
         if self.instance:
             try:
                 user_account = self.instance.account
-            except UserLibraryAccount.DoesNotExist:
+            except LibraryAccount.DoesNotExist:
                 user_account = None
 
             if user_account:
@@ -67,7 +74,8 @@ class UserUpdateForm(forms.ModelForm):
         if commit:
             user.save()
 
-            user_account, created = UserLibraryAccount.objects.get_or_create(user=user)
+            user_account, created = LibraryAccount.objects.get_or_create(
+                user=user)
             user_account.birth_date = self.cleaned_data['birth_date']
             user_account.save()
 

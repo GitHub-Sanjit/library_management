@@ -13,7 +13,7 @@
                 </a>
             </div>
             <div class="flex w-auto">
-                <div class="text-blue-900 my-auto font-black px-5">Welcome, {{ request.user.first_name }} (balance : {{request.user.account.balance}}) </div>
+                <div class="text-blue-900 my-auto font-black px-5">Welcome, {{ request.user.first_name }} (Balance : {{request.user.account.balance}}) </div>
 
                 <a href="{% url 'profile' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 mx-2 px-4 rounded focus:outline-none focus:shadow-outline">Profile</a>
                 <a href="{% url 'logout' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline">Logout</a>
@@ -29,3 +29,5 @@
         {% endif %}
     </div>
 </nav>
+
+{% comment %}  {{request.user.account.balance}} {% endcomment %}

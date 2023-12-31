@@ -4,5 +4,5 @@ from .import models
 # Register your models here.
 
 admin.site.register(models.Book)
-admin.site.register(models.UserReviews)
-admin.site.register(models.Bookpurchase)
+admin.site.register(models.Review)
+admin.site.register(models.BorrowBook)

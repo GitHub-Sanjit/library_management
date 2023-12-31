@@ -16,7 +16,7 @@ class Book(models.Model):
         return self.title
 
 
-class UserReviews(models.Model):
+class Review(models.Model):
     post = models.ForeignKey(
         Book, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=50)
@@ -28,7 +28,7 @@ class UserReviews(models.Model):
         return f"Review by {self.name}"
 
 
-class Bookpurchase(models.Model):
+class BorrowBook(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     purchase_date = models.DateTimeField(auto_now_add=True)

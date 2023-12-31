@@ -1,5 +1,5 @@
 from django import forms
-from .models import Book, UserReviews, Bookpurchase
+from .models import Book, Review, BorrowBook
 
 
 class BookForm(forms.ModelForm):
@@ -10,7 +10,7 @@ class BookForm(forms.ModelForm):
 
 class ReviewForm(forms.ModelForm):
     class Meta:
-        model = UserReviews
+        model = Review
         fields = ['name', 'email', 'body']
 
     def __init__(self, *args, **kwargs):
@@ -21,7 +21,7 @@ class ReviewForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()
 
-        user_purchased_or_borrowed = Bookpurchase.objects.filter(
+        user_purchased_or_borrowed = BorrowBook.objects.filter(
             user=self.user, book=self.book).exists()
 
         if not user_purchased_or_borrowed:
