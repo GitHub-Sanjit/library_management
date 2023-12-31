@@ -19,8 +19,8 @@ import dj_database_url
 env = environ.Env()
 environ.Env.read_env()
 
-print(os.environ.get('DB_PASSWORD'))
-print(os.environ.get('EMAIL_PASSWORD'))
+# print(os.environ.get('DB_PASSWORD'))
+# print(os.environ.get('EMAIL_PASSWORD'))
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
