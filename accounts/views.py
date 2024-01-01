@@ -39,7 +39,7 @@ class UserLogoutView(LogoutView):
         if self.request.user.is_authenticated:
             logout(self.request)
         messages.success(self.request, "Logout successfully")
-        return reverse_lazy('home')
+        return redirect('login')
 
 
 class ProfileView(LoginRequiredMixin, ListView):

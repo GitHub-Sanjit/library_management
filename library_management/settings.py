@@ -115,7 +115,7 @@ WSGI_APPLICATION = 'library_management.wsgi.application'
 
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = [
-    'https://library-9u9q.onrender.com', 'https://*.127.0.0.1']
+    'https://*.library-9u9q.onrender.com', 'https://*.127.0.0.1']
 
 DATABASES = {
     'default': dj_database_url.config(
