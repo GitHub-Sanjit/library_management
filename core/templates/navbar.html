@@ -14,10 +14,9 @@
             </div>
             <div class="flex w-auto">
                 <div class="text-blue-900 my-auto font-black px-5">Welcome, {{ request.user.first_name }} (Balance : {{request.user.account.balance}}) </div>
-
                 <a href="{% url 'profile' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 mx-2 px-4 rounded focus:outline-none focus:shadow-outline">Profile</a>
-                <form method="POST" action=""{% url 'logout' %}"">
-                <a href="{% url 'logout' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline">Logout</a>
+                <form method="POST" action="{% url 'logout' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline" >
+                <a href="{% url 'logout' %}" >Logout</a>
                 </form>
             </div>
         {% else %}
@@ -25,11 +24,9 @@
             <div>
                 <a href="{% url 'login' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 mx-2 px-4 rounded focus:outline-none focus:shadow-outline">Login</a>
             </div>
-
             <div>
                 <a href="{% url 'register' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline">Register</a>
             </div>
-
         {% endif %}
     </div>
 </nav>
