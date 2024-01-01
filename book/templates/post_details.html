@@ -54,12 +54,11 @@
 <div class="card mt-4 m-2 bg-white rounded-md p-5">
   <div class="card-body">
     <form method="POST" enctype="multipart/form-data">
-      <h1 class="mb-4 text-2xl font-bold">Add Review</h1>
+      <h1 class="mb-4 text-2xl font-bold text-center">Add Review</h1>
       {% csrf_token %}
       <div class="mb-4">
         <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
-          >Name</label
-        >
+          >Name</label>
         <input
           id="name"
           type="text"
@@ -69,21 +68,7 @@
         />
       </div>
       <div class="mb-4">
-        <label for="email" class="block text-gray-700 text-sm font-bold mb-2"
-          >Email</label
-        >
-        <input
-          id="email"
-          type="email"
-          name="email"
-          placeholder="Your email"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        />
-      </div>
-      <div class="mb-4">
-        <label for="body" class="block text-gray-700 text-sm font-bold mb-2"
-          >Body</label
-        >
+        <label for="body" class="block text-gray-700 text-sm font-bold mb-2">Body</label>
         <textarea
           id="body"
           name="body"
@@ -94,8 +79,7 @@
       {% if user.is_authenticated %}
       <button
         type="submit"
-        class="flex items-center justify-center w-full p-3 font-semibold tracki bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-2 rounded"
-      >
+        class="flex p-3 font-semibold tracki bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-2 rounded">
         Submit
       </button>
       {% endif %}
