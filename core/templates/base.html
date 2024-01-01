@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Dummy Library Management " />
+        <meta name="description" content="Library Management" />
         <title>
             {% block head_title %}Library Management{% endblock %}
         </title>
@@ -19,10 +19,10 @@
             }
         </style>
     </head>
-    <body class="bg-red-100">
+    <body class="bg-blue-500">
         {% include 'navbar.html' %}
         {% block body %}
-            <div class="lg:container lg:mx-auto mb-20" id="main">
+            <div class="lg:container lg:mx-auto mb-20 " id="main">
                 {% include 'messages.html' %}
                 {% block content %}
                 {% endblock %}

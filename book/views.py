@@ -36,7 +36,7 @@ class DetailsPostView(DetailView):
         else:
             if not BorrowBook.objects.filter(user=request.user, book=post).exists():
                 messages.error(
-                    request, 'Can not added your review , if you can give this book review must be purchased it bro')
+                    request, 'Can not added your review , First You Have to Borrow This Book.')
             return self.get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -66,8 +66,7 @@ class BorrowBookView(View):
             request.user.account.save()
 
             messages.success(request, "Purchase successful. Balance deducted.")
-        send_transaction_email(self.request.user, book.price,
-                               "Purchase Message", 'transactions/purchase_email.html')
+        send_transaction_email(self.request.user, book.price, "Purchase Message", 'transactions/purchase_email.html')
         return redirect('profile')
 
 

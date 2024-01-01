@@ -38,7 +38,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = [
-    'https://library-9u9q.onrender.com/', 'https://*.127.0.0.1']
+    'https://*.library-9u9q.onrender.com', 'https://*.127.0.0.1']
 
 
 # Application definition
@@ -179,4 +179,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = env("EMAIL")
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD'),
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')

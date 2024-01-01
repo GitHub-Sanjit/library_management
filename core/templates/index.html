@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block head_title %}Library Management{% endblock %}
+{% block head_title %} Library Management {% endblock %}
 {% block content %}
 {% load static %}
 
@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="relative w-full md:w-3/4 lg:w-4/5 xl:w-5/6">
-        <h4 class="mb-4 mx-10">{{ books | length }} results found</h4>
+        <h4 class="mb-4 mx-10 text-white">{{ books | length }} results found</h4>
         <div class="flex flex-wrap">
             {% for book in books %}
             <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 mb-4 px-2">

@@ -21,9 +21,8 @@ class UserRegistrationView(FormView):
         print(form.cleaned_data)
         user = form.save()
         login(self.request, user)
-        print(user)
         messages.success(
-            self.request, "After registration , Login successfully")
+            self.request, "After registration , autoLogin successfully done")
         return super().form_valid(form)
 
 
