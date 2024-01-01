@@ -21,7 +21,7 @@ class DetailsPostView(DetailView):
     pk_url_kwarg = 'id'
     template_name = 'post_details.html'
 
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         post = self.get_object()
 
         comment_form = ReviewForm(request.POST, book=post, user=request.user)
