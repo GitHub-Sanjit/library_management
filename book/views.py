@@ -57,16 +57,15 @@ class BorrowBookView(View):
 
         if request.user.account.balance < book.price:
             messages.error(
-                request, "Insufficient balance to make the purchase.")
+                request, "Insufficient balance to make the Borrow.")
         else:
-            # purchase = Purchase.objects.create(user=request.user, book=book )
             purchase = BorrowBook.objects.create(
                 user=request.user, book=book, before_purchase_balance=request.user.account.balance, after_purchase_balance=request.user.account.balance - book.price)
             request.user.account.balance -= book.price
             request.user.account.save()
 
-            messages.success(request, "Purchase successful. Balance deducted.")
-        send_transaction_email(self.request.user, book.price, "Purchase Message", 'transactions/purchase_email.html')
+            messages.success(request, "Borrowing successful. Balance deducted.")
+        send_transaction_email(self.request.user, book.price, "Borrowing Message", 'transactions/borrow_email.html')
         return redirect('profile')
 
 
