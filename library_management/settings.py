@@ -36,9 +36,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = [
-    'https://library-9u9q.onrender.com', 'https://*.127.0.0.1']
+
 
 
 # Application definition
@@ -49,6 +47,7 @@ INSTALLED_APPS = [
     'category',
     'core',
     'transactions',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -65,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'library_management.urls'
@@ -111,6 +111,11 @@ WSGI_APPLICATION = 'library_management.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = [
+    'https://library-9u9q.onrender.com', 'https://*.127.0.0.1']
 
 DATABASES = {
     'default': dj_database_url.config(

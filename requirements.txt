@@ -1,6 +1,7 @@
 asgiref
 dj-database-url
 Django
+django-cors-headers
 django-environ
 Pillow
 psycopg2
